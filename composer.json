@@ -1,0 +1,37 @@
+{
+  "name": "vecode/caldera-settings",
+  "description": "ENV loader and settings helper, part of Vecode Caldera",
+  "version": "1.0",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "biohzrdmx",
+      "email": "hi@biohzrdmx.me",
+      "homepage": "https://biohzrdmx.me"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Caldera\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "files": [
+      "src/functions.php"
+    ],
+    "psr-4": {
+      "Caldera\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "analyse": "phpstan analyse --configuration phpstan.neon --memory-limit 1G --level 7 src",
+    "coverage": "phpunit --coverage-text",
+    "test": "phpunit --testdox"
+  },
+  "minimum-stability": "stable"
+}
