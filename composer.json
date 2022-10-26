@@ -1,7 +1,7 @@
 {
   "name": "vecode/caldera-settings",
   "description": "ENV loader and settings helper, part of Vecode Caldera",
-  "version": "1.0",
+  "version": "1.1",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -16,14 +16,14 @@
     "ext-mbstring": "*"
   },
   "autoload": {
+    "files": [
+      "src/functions.php"
+    ],
     "psr-4": {
       "Caldera\\": "src/"
     }
   },
   "autoload-dev": {
-    "files": [
-      "src/functions.php"
-    ],
     "psr-4": {
       "Caldera\\Tests\\": "tests/"
     }

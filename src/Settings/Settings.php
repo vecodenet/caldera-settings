@@ -23,11 +23,13 @@ class Settings {
 
 	/**
 	 * Load settings
-	 * @param  string $path Path to settings
+	 * @param  string $path     Root path where the .env file resides
+	 * @param  string $settings Settings directory
+	 * @param  string $env      ENV file name
 	 * @return $this
 	 */
-	public function load(string $path) {
-		$env = $path . DIRECTORY_SEPARATOR . '.env';
+	public function load(string $path, string $settings = 'settings', string $env = '.env') {
+		$env = $path . DIRECTORY_SEPARATOR . $env;
 		if (!is_readable($env)) {
 			$info = (object) pathinfo($env);
 			throw new RuntimeException( sprintf("Load error: '%s' file in folder '%s' is not readable", $info->basename, $info->dirname) );
@@ -52,7 +54,7 @@ class Settings {
 			}
 		}
 		# Now load individual sections
-		$directory = $path . DIRECTORY_SEPARATOR . 'settings';
+		$directory = $path . DIRECTORY_SEPARATOR . $settings;
 		$files = scandir($directory);
 		if ($files) {
 			foreach ($files as $file) {
